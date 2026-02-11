@@ -1,0 +1,14 @@
+module speed_dut (
+    input  logic        clk,
+    input  logic [15:0] speed,
+    output logic        overspeed
+);
+
+always_ff @(posedge clk) begin
+    if (speed > 100)
+        overspeed <= 1;
+    else
+        overspeed <= 0;
+end
+
+endmodule
